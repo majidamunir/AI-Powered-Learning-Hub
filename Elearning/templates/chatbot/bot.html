@@ -1,0 +1,48 @@
+{% block content %}
+
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Codex</title>
+</head>
+<body>
+<!-- Import the Botpress WebChat JavaScript file -->
+<script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+
+<!-- Initialize the Botpress WebChat with the required parameters -->
+<script>
+   window.botpressWebChat.init({
+       // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
+       "botId": "508998da-15e7-483d-a88b-55ebf5fab4d4",
+       "clientId": "508998da-15e7-483d-a88b-55ebf5fab4d4",
+
+       // Set the URL for the Botpress WebChat JavaScript file and the messaging server
+       "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+       "messagingUrl": "https://messaging.botpress.cloud",
+
+       // Set the name of the bot that will be displayed in the WebChat interface
+       "botName": "Codex",
+
+       // Set the width of the WebChat container and layout to 100% (Full Screen)
+       "containerWidth": "100%25",
+       "layoutWidth": "100%25",
+
+       // Hide the widget and disable animations
+       "hideWidget": true,
+       "disableAnimations": true,
+   });
+
+   // Opens up the Chatbot by default
+   // This lets users start chatting with the Chatbot without needing to click any buttons or menus.
+   window.botpressWebChat.onEvent(
+       function () {
+           window.botpressWebChat.sendEvent({ type: "show" });
+       },
+       ["LIFECYCLE.LOADED"]
+   );
+</script>
+
+</body>
+</html>
+{% endblock %}

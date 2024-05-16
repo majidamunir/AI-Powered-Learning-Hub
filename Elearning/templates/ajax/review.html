@@ -1,0 +1,86 @@
+<!-- frontend HTML with JavaScript -->
+<script>
+    // JavaScript for handling form submission and updating review list
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('reviewForm');
+        const reviewList = document.getElementById('reviewList');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Create a new list item for the submitted review
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <div class="media d-flex">
+                        <!-- Avatar and other review details here -->
+                    </div>
+                `;
+                reviewList.insertBefore(listItem, reviewList.firstChild); // Insert the new review at the beginning of the list
+
+                // Clear the form fields after submission
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
+<div class="border shadow rounded p-6 p-md-9">
+    <h3 class="mb-2">Add Reviews & Rate</h3>
+    <div class="">What is it like to Course?</div>
+    <form id="reviewForm" method="post">
+        {% csrf_token %}
+        <div class="clearfix">
+            <fieldset class="select-rating mb-3">
+                <!-- Your star rating inputs here -->
+            </fieldset>
+        </div>
+
+        <div class="form-group mb-6">
+            <label for="exampleInputTitle1">Review Title</label>
+            <input type="text" class="form-control placeholder-1" name="review_title" id="exampleInputTitle1" placeholder="Courses">
+        </div>
+
+        <div class="form-group mb-6">
+            <label for="exampleFormControlTextarea1">Review Content</label>
+            <textarea class="form-control placeholder-1" name="review_content" id="exampleFormControlTextarea1" rows="6" placeholder="Content"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mw-md-300p">SUBMIT REVIEW</button>
+    </form>
+</div>
+
+<h3 class="mb-6">Comments</h3>
+<ul id="reviewList" class="list-unstyled pt-2">
+    {% for review in reviews %}
+    <li class="media d-flex">
+        <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
+            <!-- You can add avatar images here -->
+        </div>
+        <div class="media-body flex-grow-1">
+            <div class="d-md-flex align-items-center mb-5">
+                <div class="me-auto mb-4 mb-md-0">
+                    <h5 class="mb-0">{{ review.user}}</h5>
+                    <p class="font-size-sm font-italic">{{ review.title }}</p>
+                </div>
+                <div class="star-rating">
+                    <!-- You can display star ratings here -->
+                </div>
+            </div>
+            <p class="mb-6 line-height-md">{{ review.content }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
