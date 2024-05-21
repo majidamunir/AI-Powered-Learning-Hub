@@ -10,8 +10,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     services:
       postgres:
@@ -64,7 +63,7 @@ jobs:
         docker push $DOCKER_USERNAME/elearning_app:latest
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
 
     steps:
