@@ -121,6 +121,7 @@ def COURSE_DETAILS(request,slug):
         'course': course,
         'time_duration':time_duration,
         'check_enroll':check_enroll,
+        
     }
     return render(request,'SingleCourse/coursedetail.html',context)
 
@@ -190,26 +191,3 @@ def WATCH_COURSE(request, slug):
 
 
 
-def MY_COURSE_DETAILS(request,slug):
-    category= Categories.get_all_category(Categories)
-    time_duration=Video.objects.filter(course__slug=slug).aggregate(sum=Sum('time_duration'))
-    course=Course.objects.filter(slug=slug)
-    course_id=Course.objects.get(slug=slug)
-
-    try:
-        check_enroll=UserCourse.objects.get(user=request.user,course=course_id)
-    except UserCourse.DoesNotExist:
-        check_enroll=None
-
-
-    if course.exists():
-        course = course.first()
-    else:
-        return redirect('404')
-    context={
-        'category':category,
-        'course': course,
-        'time_duration':time_duration,
-        'check_enroll':check_enroll,
-    }
-    return render(request,'SingleCourse/coursedetail.html',context)

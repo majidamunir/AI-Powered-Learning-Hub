@@ -1,10 +1,14 @@
 {% block content %}
-
+{% load static %}
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon: small icon displayed in the browser tab -->
+    <link rel="shortcut icon" href="{% static 'assets/img/icons/icon.png' %}" />
    <title>Codex</title>
+
+   
 </head>
 <body>
 <!-- Import the Botpress WebChat JavaScript file -->
@@ -31,6 +35,7 @@
        // Hide the widget and disable animations
        "hideWidget": true,
        "disableAnimations": true,
+       
    });
 
    // Opens up the Chatbot by default

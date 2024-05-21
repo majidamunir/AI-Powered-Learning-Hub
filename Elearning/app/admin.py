@@ -36,3 +36,6 @@ admin.site.register(Subscriber)
 
 
 
+
+
+

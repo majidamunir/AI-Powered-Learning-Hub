@@ -5,10 +5,10 @@
 {% block content %}
 
 <!-- navbar -->
-<header class="navbar navbar-expand-xl navbar-light bg-white  overlay overlay-purple overlay-20">
+<header class="navbar navbar-expand-xl navbar-light bg-white ">
   <div class="container">
     <!-- Brand -->
-    <a class="" href="{% url 'home'%}">       
+    <a class="" href="{% url 'home'%}">            
       <img src="{% static 'assets/img/icons/L1.png' %}" class="navbar-brand-img" alt="...">
     </a>
 
@@ -101,7 +101,7 @@
                 <a class="dropdown-link active" href="{% url 'profile' %}">Account</a>
               </li>
               <li class="dropdown-item">
-                <a class="dropdown-link" href="">Enrolled Courses</a>
+                <a class="dropdown-link" href="{% url 'my_course' %}">Enrolled Courses</a>
               </li>
               <li class="dropdown-item">
                 <a href="{% url 'logout' %}" class="dropdown-link">Logout</a>
@@ -117,7 +117,7 @@
                 <a class="dropdown-link" href="{% url 'profile' %}">Account</a>
               </li>
               <li class="dropdown-item">
-                <a class="dropdown-link" href="">Enrolled Courses</a>
+                <a class="dropdown-link" href="{% url 'my_course' %}">Enrolled Courses</a>
               </li>
               <li class="dropdown-item">
                 <a href="{% url 'logout' %}" class="dropdown-link">Logout</a>

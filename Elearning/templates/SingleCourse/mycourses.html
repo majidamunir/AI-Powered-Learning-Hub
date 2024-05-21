@@ -4,10 +4,12 @@
 {% load course_tags %}	
 {% load static %}
 <!-- navbar -->
-<header class="navbar navbar-expand-xl navbar-light bg-white bg-white  overlay overlay-purple overlay-20">
+<header class="navbar navbar-expand-xl navbar-light bg-white ">
   <div class="container">
     <!-- Brand -->
-    <a class="" href="{% url 'home'%}"><img src="{% static 'assets/img/icons/L1.png' %}" class="navbar-brand-img" alt="..." /></a>
+    <a class="" href="{% url 'home'%}">            
+      <img src="{% static 'assets/img/icons/L1.png' %}" class="navbar-brand-img" alt="...">
+    </a>
 
     <!-- Vertical Menu -->
     <ul class="navbar-nav navbar-vertical ms-xl-4 d-none d-xl-flex">
@@ -98,7 +100,7 @@
                 <a class="dropdown-link active" href="{% url 'profile' %}">Account</a>
               </li>
               <li class="dropdown-item">
-                <a class="dropdown-link" href="">Enrolled Courses</a>
+                <a class="dropdown-link" href="{% url 'my_course' %}">Enrolled Courses</a>
               </li>
               <li class="dropdown-item">
                 <a href="{% url 'logout' %}" class="dropdown-link">Logout</a>
@@ -114,7 +116,7 @@
                 <a class="dropdown-link" href="{% url 'profile' %}">Account</a>
               </li>
               <li class="dropdown-item">
-                <a class="dropdown-link" href="">Enrolled Courses</a>
+                <a class="dropdown-link" href="{% url 'my_course' %}">Enrolled Courses</a>
               </li>
               <li class="dropdown-item">
                 <a href="{% url 'logout' %}" class="dropdown-link">Logout</a>
@@ -187,9 +189,9 @@
 </header>
     <!-- PAGE TITLE
     ================================================== -->
-    <header class="py-8 py-md-11" style="background-image: none;">
+    <header class="py-8 py-md-11 py-lg-12 mb-8 overlay overlay-black overlay-20 " style="background-image: url('{% static 'assets/img/illustrations/Asset 4.png'%}')">
         <div class="container text-center py-xl-2">
-            <h1 class="display-4 fw-semi-bold mb-0">Enrolled Courses</h1>
+            <h1 class="display-4 fw-semi-bold mb-0 text-white">Enrolled Courses</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-scroll justify-content-center">
                     <li class="breadcrumb-item">

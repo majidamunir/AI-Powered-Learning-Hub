@@ -4,7 +4,8 @@ from django.http import JsonResponse
 from .forms import SubscriptionForm,ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
-# from .models import Review
+
+
 
 
 def subscribe(request):
@@ -49,3 +50,6 @@ def contact_us(request):
         form = ContactForm()
 
     return render(request, './main/contact.html', {'form': form})
+
+
+

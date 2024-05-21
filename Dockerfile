@@ -26,6 +26,9 @@ ENV PATH="/venv/bin:$PATH"
 COPY ./Elearning /code/
 COPY requirements.txt /code/
 
+# Activate virtual environment
+RUN . /venv/bin/activate
+
 # Install Python dependencies inside the virtual environment
 RUN pip install --no-cache-dir -r requirements.txt
 
