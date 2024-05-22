@@ -37,16 +37,14 @@ jobs:
         python-version: '3.11'
 
     - name: Install dependencies
-      working-directory: ./Elearning  # Change to your project directory
       run: |
         python -m venv venv
         source venv/bin/activate
-        pip install -r requirements.txt
+        pip install -r requirements.txt  # Ensure the correct path to requirements.txt
 
     - name: Build Docker image
-      working-directory: ./Elearning  # Change to your project directory
       run: |
-        docker build -t elearning_app .
+        docker build -t elearning_app -f Dockerfile .  # Ensure the correct path to Dockerfile
 
     - name: Push Docker image to Docker Hub
       env:
