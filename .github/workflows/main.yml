@@ -40,11 +40,11 @@ jobs:
       run: |
         python -m venv venv
         source venv/bin/activate
-        pip install -r Elearning/requirements.txt  # Ensure the correct path to requirements.txt
+        pip install -r requirements.txt  # Ensure the correct path to requirements.txt
 
     - name: Build Docker image
       run: |
-        docker build -t elearning_app -f Elearning/Dockerfile .  # Ensure the correct path to Dockerfile
+        docker build -t elearning_app -f Dockerfile .  # Ensure the correct path to Dockerfile
 
     - name: Push Docker image to Docker Hub
       env:
