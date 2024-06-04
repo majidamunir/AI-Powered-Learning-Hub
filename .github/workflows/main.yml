@@ -34,24 +34,22 @@ jobs:
     - name: List files for debugging
       run: |
         ls -al
-        ls -al Elearning
+        ls -al my_venv/bin  # Check if the activation script exists
 
-    - name: Set up Python
+    - name: Set up Python and create virtual environment
       uses: actions/setup-python@v2
       with:
         python-version: '3.11'
 
     - name: Install dependencies
-      working-directory: Elearning  # Change to your project directory
       run: |
-        # python -m venv venv
-        source venv/bin/activate
-        pip install -r requirements.txt
+        python -m venv my_venv
+        source my_venv/bin/activate
+        pip install -r Elearning/requirements.txt  # Ensure the correct path to requirements.txt
 
     - name: Build Docker image
-      working-directory: Elearning  # Change to your project directory
       run: |
-        docker build -t elearning_app -f Dockerfile .
+        docker build -t elearning_app -f Elearning/Dockerfile .  # Ensure the correct path to Dockerfile
 
     - name: Push Docker image to Docker Hub
       env:
@@ -70,7 +68,7 @@ jobs:
     - name: Install SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
 
     - name: Deploy to server
       env:
