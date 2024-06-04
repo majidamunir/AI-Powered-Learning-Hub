@@ -40,11 +40,11 @@ jobs:
       run: |
         python -m venv venv
         source venv/bin/activate
-        pip install -r requirements.txt  # Ensure the correct path to requirements.txt
+        pip install -r Elearning/requirements.txt  # Ensure the correct path to requirements.txt
 
     - name: Build Docker image
       run: |
-        docker build -t elearning_app -f Dockerfile .  # Ensure the correct path to Dockerfile
+        docker build -t elearning_app -f Elearning/Dockerfile .  # Ensure the correct path to Dockerfile
 
     - name: Push Docker image to Docker Hub
       env:
@@ -60,6 +60,13 @@ jobs:
     needs: build
 
     steps:
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+
     - name: Deploy to server
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: |
-        ssh user@yourserver.com 'docker pull $DOCKER_USERNAME/elearning_app:latest && docker run -d -p 8000:8000 $DOCKER_USERNAME/elearning_app:latest'
+        ssh -o StrictHostKeyChecking=no user@yourserver.com 'docker pull $DOCKER_USERNAME/elearning_app:latest && docker run -d -p 8000:8000 $DOCKER_USERNAME/elearning_app:latest'
