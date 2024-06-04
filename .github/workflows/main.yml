@@ -49,7 +49,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t elearning_app -f Elearning/Dockerfile .  # Ensure the correct path to Dockerfile
+        docker build -t elearning_app -f Dockerfile .  # Ensure the correct path to Dockerfile
 
     - name: Push Docker image to Docker Hub
       env:
