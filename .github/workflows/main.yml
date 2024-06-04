@@ -34,14 +34,14 @@ jobs:
     - name: List files for debugging
       run: |
         ls -al
-        ls -al my_venv/bin  # Check if the activation script exists
+        ls -al my_venv  # Check the contents of my_venv directory
 
     - name: Set up Python and create virtual environment
       uses: actions/setup-python@v2
       with:
         python-version: '3.11'
 
-    - name: Install dependencies
+    - name: Create and activate virtual environment
       run: |
         python -m venv my_venv
         source my_venv/bin/activate
