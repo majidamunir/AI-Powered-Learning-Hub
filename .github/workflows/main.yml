@@ -44,7 +44,7 @@ jobs:
     - name: Install dependencies
       working-directory: Elearning  # Change to your project directory
       run: |
-        python -m venv venv
+        # python -m venv venv
         source venv/bin/activate
         pip install -r requirements.txt
 
