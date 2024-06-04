@@ -65,13 +65,10 @@ jobs:
     needs: build
 
     steps:
-    - name: Install SSH key
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
-
     - name: Deploy to server
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
-        ssh -o StrictHostKeyChecking=no user@yourserver.com 'docker pull $DOCKER_USERNAME/elearning_app:latest && docker run -d -p 8000:8000 $DOCKER_USERNAME/elearning_app:latest'
+        docker pull $DOCKER_USERNAME/elearning_app:latest
+        docker run -d -p 8000:8000 $DOCKER_USERNAME/elearning_app:latest
