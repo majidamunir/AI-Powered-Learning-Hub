@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+
 from .import views,user_login
 
 from django.conf import settings
