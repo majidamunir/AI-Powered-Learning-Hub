@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - elearning_volume:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    networks:
+      - elearning_network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_db
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - elearning_network
+
+networks:
+  elearning_network:
+    driver: bridge
+
+volumes:
+  elearning_volume:
+    driver: local
+  mysql_data:
