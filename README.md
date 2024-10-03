@@ -62,11 +62,11 @@ python manage.py runserver
 Step 6: Access the Web Application
 Open your browser and go to http://127.0.0.1:8000/ to start using the application.
 
-### Docker Setup
+## Docker Setup
 
 If you'd prefer to run the project using Docker, follow these steps:
 
-## Step 1: Build the Docker Image
+### Step 1: Build the Docker Image
 Ensure you have Docker and Docker Compose installed on your machine.
 
 Create a Dockerfile in the root directory with the following content:
@@ -85,7 +85,7 @@ ENV DJANGO_SETTINGS_MODULE=ai_hub.settings
 Step 7: Run the command to start Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-## Step 2: Create a docker-compose.yml File
+### Step 2: Create a docker-compose.yml File
 
 Create a docker-compose.yml file in the root directory:
 version: '3'
@@ -110,21 +110,48 @@ services:
     ports:
       - "5432:5432"
       
-## Step 3: Build and Run the Containers
+### Step 3: Build and Run the Containers
 Now you can build and run your Django app and PostgreSQL database using Docker Compose.
 
 docker-compose up --build
 This will spin up the Django app and a PostgreSQL database in a container.
 
-## Step 4: Access the Application
+### Step 4: Access the Application
 Open your browser and navigate to http://127.0.0.1:8000/ to view your app.
 
-## Step 5: Stopping the Containers
+### Step 5: Stopping the Containers
 To stop the Docker containers, run:
 
 docker-compose down
 
-### Usage
+## Project Structure
+Here’s an overview of the main folders and files in the project:
+
+├── ai_hub/                 # Main Django project folder
+│   ├── __init__.py
+│   ├── settings.py         # Django settings
+│   ├── urls.py             # URL routing configuration
+│   ├── views.py            # Django views
+│   └── wsgi.py             # Entry point for deployment
+├── learning_app/           # Custom app handling the core learning features
+│   ├── migrations/         # Django migrations
+│   ├── models.py           # Database models for quizzes, users, etc.
+│   ├── admin.py            # Admin interface configurations
+│   ├── views.py            # Views handling HTTP requests
+│   ├── urls.py             # URL routing for learning app
+│   └── templates/          # HTML templates for front-end
+├── static/                 # Static files (CSS, JS, Images)
+│   ├── css/                # Custom styles
+│   ├── js/                 # Custom scripts
+│   └── images/             # Static images
+├── manage.py               # Django management script
+├── Dockerfile              # Docker configuration file
+├── docker-compose.yml      # Docker Compose file
+├── db.sqlite3              # SQLite database (default, optional)
+├── requirements.txt        # Python dependencies
+└── README.md               # Project README
+
+## Usage
 
 After running the development server, here’s how you can use the platform:
 
@@ -134,11 +161,11 @@ Take Quizzes: Attempt interactive quizzes to test your knowledge.
 AI-Powered Recommendations: Receive personalized learning suggestions based on quiz performance and learning history.
 Track Progress: Use your dashboard to view progress and learning stats.
 
-### Admin Panel
+## Admin Panel
 
 For managing users and content, Django’s admin panel can be accessed at http://127.0.0.1:8000/admin/.
 
-### Deployment
+## Deployment
 
 To deploy the project to a production environment:
 
