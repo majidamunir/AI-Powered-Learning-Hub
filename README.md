@@ -75,4 +75,13 @@ Track Progress: Use your dashboard to view progress and learning stats.
 
 For managing users and content, Django’s admin panel can be accessed at http://127.0.0.1:8000/admin/.
 
+### Deployment
+
+To deploy the project to a production environment:
+
+Set up environment variables for the Django settings (DEBUG=False, ALLOWED_HOSTS, etc.).
+Install a production-ready web server like Gunicorn.
+Configure your database (PostgreSQL, MySQL, etc.).
+Use a hosting platform such as Heroku, AWS, or DigitalOcean.
+
 Thank you for using AI Powered Learning Hub! We hope you have a great experience.
