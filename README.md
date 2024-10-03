@@ -11,9 +11,6 @@ AI Powered Learning Hub is a web-based platform that aims to revolutionize learn
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Features
 
