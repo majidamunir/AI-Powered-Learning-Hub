@@ -10,6 +10,7 @@ AI Powered Learning Hub is a web-based platform that aims to revolutionize learn
 - [Installation](#installation)
 - [Docker Setup](#docker-setup)
 - [Usage](#usage)
+- [Admin Panel](#admin-panel)
 - [Deployment](#deployment)
 
 ## Features
@@ -41,24 +42,24 @@ Before you start, ensure you have the following installed:
 
 ## Installation
 
-Step 1: Clone the Repository
+### Step 1: Clone the Repository
 git clone https://github.com/majidamunir/ai-powered-learning-hub.git
 cd ai-powered-learning-hub
 
-Step 2: Create and Activate a Virtual Environment
+### Step 2: Create and Activate a Virtual Environment
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate  
 
-Step 3: Install Dependencies
+### Step 3: Install Dependencies
 pip install -r requirements.txt
 
-Step 4: Apply Migrations
+### Step 4: Apply Migrations
 python manage.py migrate
 
-Step 5: Run the Development Server
+### Step 5: Run the Development Server
 python manage.py runserver
 
-Step 6: Access the Web Application
+### Step 6: Access the Web Application
 Open your browser and go to localhost:8000 to start using the application.
 
 ## Docker Setup
@@ -67,26 +68,32 @@ If you'd prefer to run the project using Docker, follow these steps:
 
 ### Step 1: Build the Docker Image
 Ensure you have Docker and Docker Compose installed on your machine.
-
 Create a Dockerfile in the root directory with the following content:
+
 Step 1: Use an official Python runtime as a parent image
 FROM python:3.9-slim
+
 Step 2: Set the working directory in the container
 WORKDIR /app
+
 Step 3: Copy the current directory contents into the container at /app
 COPY . /app/
+
 Step 4: Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
 Step 5: Make port 8000 available to the world outside this container
 EXPOSE 8000
+
 Step 6: Define environment variable
 ENV DJANGO_SETTINGS_MODULE=ai_hub.settings
+
 Step 7: Run the command to start Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 ### Step 2: Create a docker-compose.yml File
-
 Create a docker-compose.yml file in the root directory:
+
 version: '3'
 services:
   web:
@@ -111,7 +118,6 @@ services:
       
 ### Step 3: Build and Run the Containers
 Now you can build and run your Django app and PostgreSQL database using Docker Compose.
-
 docker-compose up --build
 This will spin up the Django app and a PostgreSQL database in a container.
 
@@ -120,18 +126,17 @@ Open your browser and navigate to localhost:8000 to view your app.
 
 ### Step 5: Stopping the Containers
 To stop the Docker containers, run:
-
 docker-compose down
 
 ## Usage
 
 After running the development server, here’s how you can use the platform:
 
-Register/Login: Sign up or log in to access the dashboard.
-Explore Learning Modules: Browse through available learning modules and materials.
-Take Quizzes: Attempt interactive quizzes to test your knowledge.
-AI-Powered Recommendations: Receive personalized learning suggestions based on quiz performance and learning history.
-Track Progress: Use your dashboard to view progress and learning stats.
+1. Register/Login: Sign up or log in to access the dashboard.
+2. Explore Learning Modules: Browse through available learning modules and materials.
+3. Take Quizzes: Attempt interactive quizzes to test your knowledge.
+4. AI-Powered Recommendations: Receive personalized learning suggestions based on quiz performance and learning history.
+5. Track Progress: Use your dashboard to view progress and learning stats.
 
 ## Admin Panel
 
@@ -141,9 +146,9 @@ For managing users and content, Django’s admin panel can be accessed at localh
 
 To deploy the project to a production environment:
 
-Set up environment variables for the Django settings (DEBUG=False, ALLOWED_HOSTS, etc.).
-Install a production-ready web server like Gunicorn.
-Configure your database (PostgreSQL, MySQL, etc.).
-Use a hosting platform such as Heroku, AWS, or DigitalOcean.
+1. Set up environment variables for the Django settings (DEBUG=False, ALLOWED_HOSTS, etc.).
+2. Install a production-ready web server like Gunicorn.
+3. Configure your database (PostgreSQL, MySQL, etc.).
+4. Use a hosting platform such as Heroku, AWS, or DigitalOcean.
 
 Thank you for using AI Powered Learning Hub! We hope you have a great experience.
