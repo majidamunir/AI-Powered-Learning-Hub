@@ -149,6 +149,6 @@ Use a hosting platform such as Heroku, AWS, or DigitalOcean.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the MIT license.
+The Django framework is open-sourced software licensed under the https://opensource.org/license/MIT.
 
 Thank you for using AI Powered Learning Hub! We hope you have a great experience.
