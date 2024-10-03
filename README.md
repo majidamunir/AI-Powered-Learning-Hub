@@ -8,6 +8,7 @@ AI Powered Learning Hub is a web-based platform that aims to revolutionize learn
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Docker Setup](#docker-setup)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Deployment](#deployment)
@@ -60,6 +61,68 @@ python manage.py runserver
 
 Step 6: Access the Web Application
 Open your browser and go to http://127.0.0.1:8000/ to start using the application.
+
+### Docker Setup
+
+If you'd prefer to run the project using Docker, follow these steps:
+
+## Step 1: Build the Docker Image
+Ensure you have Docker and Docker Compose installed on your machine.
+
+Create a Dockerfile in the root directory with the following content:
+Step 1: Use an official Python runtime as a parent image
+FROM python:3.9-slim
+Step 2: Set the working directory in the container
+WORKDIR /app
+Step 3: Copy the current directory contents into the container at /app
+COPY . /app/
+Step 4: Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+Step 5: Make port 8000 available to the world outside this container
+EXPOSE 8000
+Step 6: Define environment variable
+ENV DJANGO_SETTINGS_MODULE=ai_hub.settings
+Step 7: Run the command to start Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+## Step 2: Create a docker-compose.yml File
+
+Create a docker-compose.yml file in the root directory:
+version: '3'
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ai_hub
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+      
+## Step 3: Build and Run the Containers
+Now you can build and run your Django app and PostgreSQL database using Docker Compose.
+
+docker-compose up --build
+This will spin up the Django app and a PostgreSQL database in a container.
+
+## Step 4: Access the Application
+Open your browser and navigate to http://127.0.0.1:8000/ to view your app.
+
+## Step 5: Stopping the Containers
+To stop the Docker containers, run:
+
+docker-compose down
 
 ### Usage
 
