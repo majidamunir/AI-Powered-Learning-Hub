@@ -38,7 +38,7 @@ Before you start, ensure you have the following installed:
 - **Django 4.x** or higher
 - **Virtualenv** (optional but recommended)
 - **Bootstrap 5.x**
-- Basic knowledge of HTML, CSS, and JavaScript
+- Basic knowledge of **HTML, CSS, and JavaScript**
 
 ## Installation
 
