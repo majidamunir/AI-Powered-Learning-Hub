@@ -157,7 +157,7 @@ Commit your changes (git commit -m 'Add new feature').
 Push to the branch (git push origin feature-branch).
 Open a pull request.
 
-### Guidelines
+## Guidelines
 
 Follow PEP8 for Python code style.
 Ensure that your code is well-tested before submitting.
@@ -166,5 +166,6 @@ Document your code thoroughly in the relevant areas.
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
 
 Thank you for using AI Powered Learning Hub! We hope you have a great experience.
