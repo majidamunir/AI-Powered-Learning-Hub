@@ -95,6 +95,7 @@ CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 Create a docker-compose.yml file in the root directory:
 
 version: '3'
+
 services:
 
  web:
