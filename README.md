@@ -9,7 +9,6 @@ AI Powered Learning Hub is a web-based platform that aims to revolutionize learn
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Docker Setup](#docker-setup)
-- [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Deployment](#deployment)
 
@@ -123,33 +122,6 @@ Open your browser and navigate to http://127.0.0.1:8000/ to view your app.
 To stop the Docker containers, run:
 
 docker-compose down
-
-## Project Structure
-Here’s an overview of the main folders and files in the project:
-
-├── ai_hub/                 # Main Django project folder
-│   ├── __init__.py
-│   ├── settings.py         # Django settings
-│   ├── urls.py             # URL routing configuration
-│   ├── views.py            # Django views
-│   └── wsgi.py             # Entry point for deployment
-├── learning_app/           # Custom app handling the core learning features
-│   ├── migrations/         # Django migrations
-│   ├── models.py           # Database models for quizzes, users, etc.
-│   ├── admin.py            # Admin interface configurations
-│   ├── views.py            # Views handling HTTP requests
-│   ├── urls.py             # URL routing for learning app
-│   └── templates/          # HTML templates for front-end
-├── static/                 # Static files (CSS, JS, Images)
-│   ├── css/                # Custom styles
-│   ├── js/                 # Custom scripts
-│   └── images/             # Static images
-├── manage.py               # Django management script
-├── Dockerfile              # Docker configuration file
-├── docker-compose.yml      # Docker Compose file
-├── db.sqlite3              # SQLite database (default, optional)
-├── requirements.txt        # Python dependencies
-└── README.md               # Project README
 
 ## Usage
 
