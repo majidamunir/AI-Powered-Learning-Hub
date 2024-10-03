@@ -42,7 +42,7 @@ Before you start, ensure you have the following installed:
 ## Installation
 
 Step 1: Clone the Repository
-git clone https://github.com/your-username/ai-powered-learning-hub.git
+git clone https://github.com/majidamunir/ai-powered-learning-hub.git
 cd ai-powered-learning-hub
 
 Step 2: Create and Activate a Virtual Environment
@@ -59,7 +59,7 @@ Step 5: Run the Development Server
 python manage.py runserver
 
 Step 6: Access the Web Application
-Open your browser and go to http://127.0.0.1:8000/ to start using the application.
+Open your browser and go to localhost:8000 to start using the application.
 
 ## Docker Setup
 
@@ -116,7 +116,7 @@ docker-compose up --build
 This will spin up the Django app and a PostgreSQL database in a container.
 
 ### Step 4: Access the Application
-Open your browser and navigate to http://127.0.0.1:8000/ to view your app.
+Open your browser and navigate to localhost:8000 to view your app.
 
 ### Step 5: Stopping the Containers
 To stop the Docker containers, run:
@@ -135,7 +135,7 @@ Track Progress: Use your dashboard to view progress and learning stats.
 
 ## Admin Panel
 
-For managing users and content, Django’s admin panel can be accessed at http://127.0.0.1:8000/admin/.
+For managing users and content, Django’s admin panel can be accessed at localhost:8000/admin/.
 
 ## Deployment
 
