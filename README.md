@@ -94,9 +94,9 @@ CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 ### Step 2: Create a docker-compose.yml File
 Create a docker-compose.yml file in the root directory:
 
-version: '3'
-services:
-  web:
+1. version: '3'
+2. services:
+ **web**:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -107,7 +107,7 @@ services:
       - DEBUG=1
     depends_on:
       - db
-  db:
+  **db**:
     image: postgres:13
     environment:
       POSTGRES_DB: ai_hub
