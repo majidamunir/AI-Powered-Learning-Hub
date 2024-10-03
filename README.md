@@ -130,7 +130,9 @@ services:
       
 ### Step 3: Build and Run the Containers
 Now you can build and run your Django app and PostgreSQL database using Docker Compose.
+
 docker-compose up --build
+
 This will spin up the Django app and a PostgreSQL database in a container.
 
 ### Step 4: Access the Application
