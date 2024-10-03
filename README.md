@@ -11,6 +11,7 @@ AI Powered Learning Hub is a web-based platform that aims to revolutionize learn
 - [Docker Setup](#docker-setup)
 - [Usage](#usage)
 - [Deployment](#deployment)
+- [License](#license)
 
 ## Features
 
@@ -146,5 +147,8 @@ Install a production-ready web server like Gunicorn.
 Configure your database (PostgreSQL, MySQL, etc.).
 Use a hosting platform such as Heroku, AWS, or DigitalOcean.
 
+## License
+
+The Laravel framework is open-sourced software licensed under the MIT license.
 
 Thank you for using AI Powered Learning Hub! We hope you have a great experience.
